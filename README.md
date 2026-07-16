@@ -19,5 +19,6 @@ Customers increasingly research purchases inside AI assistants instead of search
 Install as a Claude skill (drop the folder into your skills directory) or read `SKILL.md` directly as a playbook. Facts move fast in this field — dated claims are marked with their source and vintage; re-verify before citing to clients.
 
 ## Credits
+Created by Lucy Hu using Claude.
 
 Portions of `references/platform-scoring.md` and `references/entity-consistency.md`, plus platform-landscape updates, are adapted from the MIT-licensed [digital-marketing-pro](https://github.com/indranilbanerjee/digital-marketing-pro) plugin by Indranil Banerjee (aeo-audit and aeo-geo skills). Copyright (c) 2026 Digital Marketing Pro, used under the MIT License.
