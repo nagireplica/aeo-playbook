@@ -9,13 +9,17 @@ Each answer engine retrieves differently, so tactics weight differently per plat
 | Platform | Retrieval basis | What matters most |
 |---|---|---|
 | ChatGPT | Bing index + licensed content + browsing | Authority, structured content, breadth of mentions |
+| Google AI Mode | Google index + Gemini, conversational multi-turn | Entity consistency + content that survives follow-up drilling |
 | Google AI Overviews | Google's search index | Traditional SEO + E-E-A-T + structured data |
 | Perplexity | Own crawling + explicit citations | Freshness and credible citable sources |
 | Claude | Web search (when enabled) | High-quality, well-structured documentation |
 | Gemini | Google ecosystem | Google authority signals |
+| Microsoft Copilot | Bing index, web-grounded | Bing-side SEO + authority |
 | Voice assistants (Siri/Alexa) | Knowledge Graph + search | Structured data, business listings |
 
-Practical consequence: freshness work pays off fastest on Perplexity; schema and Business Profile work matter most for Google AI Overviews and voice; broad third-party mentions matter most for ChatGPT.
+**AI Mode ≠ AI Overviews** (since May 2026): AI Mode is Google's conversational search tab — default for opted-in users — and it selects different citations than AI Overviews for the same query a large share of the time. Its multi-turn follow-up flow rewards pages that can be *drilled into*: a clean definitional answer up top wins the first citation; genuine "why / how / compared-to" depth beneath wins the follow-up citations. Audit and optimize both surfaces separately.
+
+Practical consequence: freshness work pays off fastest on Perplexity; schema and Business Profile work matter most for Google AI Overviews and voice; broad third-party mentions matter most for ChatGPT; entity consistency matters most for AI Mode (its personalization layer runs on top of the entity graph).
 
 ## Answer-shaped writing
 

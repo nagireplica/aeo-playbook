@@ -17,7 +17,7 @@ Cover these archetypes, phrased the way real buyers ask AI:
 
 ## 2. Run the queries
 
-Best: run each query in 2–3 actual AI engines (ChatGPT, Perplexity, Google AI Overviews) and record answers verbatim. If direct engine access isn't available, approximate with web search — search retrieval is the layer AI engines read before answering, so the domains and brands that dominate retrieval predict what AI will say. Note which method was used; be transparent about the approximation. Dedicated tracking tools (Ahrefs Brand Radar, Otterly.ai, Profound) automate this if the client has access.
+Best: run each query in 2–3 actual AI engines (ChatGPT, Perplexity, Google AI Mode and/or AI Overviews — these are distinct surfaces that cite differently; note which one you probed) and record answers verbatim. For a scored, competitor-benchmarked version of this step across all six surfaces, use `platform-scoring.md`. If direct engine access isn't available, approximate with web search — search retrieval is the layer AI engines read before answering, so the domains and brands that dominate retrieval predict what AI will say. Note which method was used; be transparent about the approximation. Dedicated tracking tools (Ahrefs Brand Radar, Otterly.ai, Profound) automate this if the client has access.
 
 Also run one knowledge check: does the AI know the brand exists without retrieval? Young brands typically aren't in training data, which means their AI presence depends entirely on what live retrieval finds.
 

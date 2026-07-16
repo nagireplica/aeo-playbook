@@ -25,12 +25,14 @@ Before advising, learn: what the business sells, price point, audience(s), busin
 
 You cannot prove progress without a before-picture. Read `references/baseline-audit.md` and produce a dated snapshot: which brands AI currently recommends for the target queries, whether the client appears, who gets cited, and what that implies for sequencing. The baseline routinely reorders the plan — e.g., discovering that editorial roundups gate the biggest queries, or that a competitor already owns the client's differentiating vocabulary.
 
+Probe **Google AI Mode and Google AI Overviews as separate surfaces** — since May 2026 AI Mode is Google's default conversational search for opted-in users and frequently cites different sources than AI Overviews for the same query. When the engagement needs trackable numbers or competitor benchmarking rather than a qualitative snapshot, layer on the scoring rubric in `references/platform-scoring.md`. Fact-check every "brand appears" probe result — AI engines confidently hallucinate brand facts, and an unchecked audit certifies wrong information.
+
 ### Stage 2 — Site and technical audit
 
 Check, in order of leverage:
 
 1. **One canonical domain.** Multiple live sites (old platform + new, www vs apex serving different content) split authority and feed AI conflicting facts. Consolidate with 301 redirects before anything else.
-2. **AI crawler access.** robots.txt must allow GPTBot, ClaudeBot, PerplexityBot, Google-Extended. Blocked crawlers = invisible brand.
+2. **AI crawler access.** robots.txt must allow GPTBot, ClaudeBot, PerplexityBot, Google-Extended. Blocked crawlers = invisible brand. Nuance on Google (official guidance, May 2026): eligibility for AI Overviews/AI Mode is standard Search eligibility — controlled by Googlebot and snippet directives, while `Google-Extended` governs Gemini training/Vertex grounding, a separate system; Search Console also now has a property-level opt-out toggle for AI features. Google's stated position is that **no `llms.txt` file and no AI-specific schema are needed** — don't invoice work around fictional ranking factors.
 3. **Crawlability of content.** Fetch key pages the way a crawler does. JS-rendered pages that return empty shells are invisible regardless of quality. Server-rendered text is non-negotiable for pages that must be read.
 4. **Structured data.** Product, Organization, FAQPage, BreadcrumbList schema. Schema is how an AI knows price, availability, and what the thing is. Check for existing platform-generated schema first (Shopify and others auto-emit Product schema) — extend it, never duplicate it; two conflicting Product schemas is worse than one.
 5. **Placeholder/unfinished content** (default banners, lorem ipsum) — signals an untrustworthy source.
@@ -70,15 +72,16 @@ AI systems exhibit a measured bias toward earned media — third-party sources �
 2. **Reddit and community forums.** Genuine, disclosed participation in the subreddits where the category is discussed. Never astroturf — AI surfaces the callouts too.
 3. **Review corpus.** Automate post-purchase review collection; push reviews to third-party surfaces (Google, Trustpilot, category-specific sites), not just the brand's own site. Caution: don't publish AggregateRating schema on a handful of reviews — it reads as thin or manipulative. Build volume first.
 4. **Video reviews.** YouTube is heavily cited and dominates younger-demographic discovery. Seed products to relevant reviewers.
-5. **Entity consistency.** Identical company description across site schema, LinkedIn, business registries, and (once notable) Wikidata. AI verifies who you are across sources before recommending.
+5. **Entity consistency.** Identical company description across site schema, LinkedIn, business registries, and (once notable) Wikidata. AI verifies who you are across sources before recommending — practitioners rank this the single highest-leverage AEO investment, above schema tweaks. Full audit checklist, Knowledge Graph/Wikidata procedure, and brand-name disambiguation in `references/entity-consistency.md`.
 
 ### Stage 6 — Measurement
 
 Attribution is inherently leaky (research happens in the AI, purchase happens days later on-site), so instrument proactively:
 
 - Add "AI assistant (ChatGPT/Gemini/Perplexity)" to post-purchase "how did you hear about us" surveys.
-- Segment analytics referrals from AI domains (chatgpt.com, perplexity.ai, gemini.google.com).
-- Re-run the baseline query set monthly (same queries, same date, log results against the snapshot).
+- Segment analytics referrals from AI domains (chatgpt.com, perplexity.ai, gemini.google.com). GA4's built-in "AI Assistant" channel group (added May 2026) captures these automatically.
+- Check the Google Search Console **AI Performance Report** (rolling out from June 2026) for actual impressions in AI Overviews and AI Mode — it's the ground truth that synthetic probe results should be reconciled against (probes show what AI *could* surface; GSC shows what it did). Note it excludes clicks by design; pair with GA4.
+- Re-run the baseline query set monthly (same queries, same date, log results against the snapshot); use the scoring rubric in `references/platform-scoring.md` for trackable per-platform scores, and never average scores across platforms.
 - Consider AI-mention monitoring tools (entry tier ~$29/mo) once budget allows.
 - Judge lead quality, not just traffic volume — expect traffic down, conversion up.
 
@@ -90,10 +93,14 @@ Set realistic milestones: branded queries answerable within 1–2 months; niche 
 - **AEO complements, never replaces, the rest of marketing.** Position it alongside paid, social, email, and conversion work — it is an evolving channel with hard attribution, not a bet-the-company strategy.
 - **Match effort to authority.** For young/low-authority brands, weight Stage 5 earlier and heavier; for established brands, Stages 2–4 unlock faster.
 - **Strategy questions deserve strategy answers.** If the user asks "how does this connect to sales," explain the funnel shift plainly before prescribing tactics.
+- **YMYL brands (health, finance, legal) face stricter thresholds.** AI platforms apply elevated source-quality bars: verifiable expert authorship, citations to primary/peer-reviewed sources, and review disclosures are prerequisites, and misrepresentation carries higher reputational risk — fact-check AI outputs about the brand especially carefully.
+- **Never try to trick the engines.** Stuffed content, fake authority signals, and undisclosed astroturfing get detected and demoted faster than in traditional search.
 
 ## References
 
 - `references/baseline-audit.md` — visibility snapshot protocol, query design, output template. Read when auditing current AI visibility or setting up measurement.
 - `references/page-anatomy.md` — full AEO page section order, JSON-LD schema patterns, worked generic example. Read before building or reviewing any page.
 - `references/evidence.md` — the research findings behind the method, with numbers. Read when the user wants justification, sources, or a strategy document.
-- `references/aeo-fundamentals.md` — platform-by-platform landscape (ChatGPT vs Perplexity vs AI Overviews vs voice), answer-shaped writing rules, E-E-A-T/authority signals, content formats, tool directory, and the measurement metrics table. Read for strategy explanations, tool selection, or platform-specific questions.
+- `references/aeo-fundamentals.md` — platform-by-platform landscape (ChatGPT vs Perplexity vs AI Mode vs AI Overviews vs voice), answer-shaped writing rules, E-E-A-T/authority signals, content formats, tool directory, and the measurement metrics table. Read for strategy explanations, tool selection, or platform-specific questions.
+- `references/platform-scoring.md` — six-surface testing protocol, per-query scoring rubric, competitive benchmarking, monitoring cadence, and probe-vs-actuals reconciliation (GSC/GA4). Read when the audit needs trackable numbers rather than a qualitative snapshot.
+- `references/entity-consistency.md` — cross-platform entity audit checklist, Knowledge Graph and Wikidata procedures, common-word brand disambiguation, monitoring schedule. Read when AI describes the brand inaccurately or inconsistently, or before Stage 5 entity work.
